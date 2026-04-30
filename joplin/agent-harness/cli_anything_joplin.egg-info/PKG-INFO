@@ -1,0 +1,63 @@
+Metadata-Version: 2.4
+Name: cli-anything-joplin
+Version: 1.0.0
+Summary: CLI harness for Joplin workflows using the real joplin terminal backend.
+Home-page: https://github.com/your-org/cli-anything-joplin
+Author: cli-anything contributors
+Requires-Python: >=3.10
+Description-Content-Type: text/markdown
+Requires-Dist: click>=8.0.0
+Requires-Dist: prompt-toolkit>=3.0.0
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0.0; extra == "dev"
+Dynamic: author
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: provides-extra
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
+# cli-anything-joplin
+
+Stateful CLI harness for Joplin automation using the real `joplin` terminal binary.
+
+## Requirements
+
+- Python 3.10+
+- Joplin terminal app installed and available in PATH as `joplin`
+
+## Install
+
+```bash
+cd agent-harness
+pip install -e .
+```
+
+## Usage
+
+```bash
+# REPL mode (default)
+cli-anything-joplin
+
+# One-shot with JSON output
+cli-anything-joplin --json notebooks list
+
+# With project file
+cli-anything-joplin --project ./demo.joplin-harness.json notes create "hello"
+```
+
+## Save behavior
+
+- One-shot mutating commands auto-save if a project is loaded.
+- `--dry-run` suppresses auto-save.
+- REPL mode never auto-saves.
+
+## Test
+
+```bash
+cd agent-harness
+pytest -v --tb=no
+CLI_ANYTHING_FORCE_INSTALLED=1 pytest -v -s cli_anything/joplin/tests/test_full_e2e.py
+```

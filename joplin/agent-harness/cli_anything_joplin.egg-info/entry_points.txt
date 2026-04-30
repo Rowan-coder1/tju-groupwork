@@ -1,0 +1,2 @@
+[console_scripts]
+cli-anything-joplin = cli_anything.joplin.joplin_cli:main

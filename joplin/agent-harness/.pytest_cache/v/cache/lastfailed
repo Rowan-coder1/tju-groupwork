@@ -1,0 +1,3 @@
+{
+  "cli_anything/joplin/tests/test_full_e2e.py::TestBackendWorkflows::test_import_workflow": true
+}
